@@ -1,8 +1,5 @@
 # Learn git
 
-This workshop has been made for students of [Founders and Coders](www.founderandcoders.com), and therefore assumes that you have completed lesson 1 of [Udacity's Git and GitHub course](https://www.udacity.com/course/how-to-use-git-and-github--ud775) (as part of the [precourse material](https://github.com/foundersandcoders/master-reference/tree/master/coursebook/precourse))
-
-**All contributions to this workshop are very welcome!** If you have any suggestions for improvements, please raise an [issue](https://github.com/NataliaLKB/learn-git-basics/issues). The author will let you know whether they prefer to make the changes themselves, or whether you are welcome to submit your own PR (Pull Request). If you do make  PR yourself, please follow the Founders and Coders [contributing guidelines](https://github.com/foundersandcoders/master-reference/blob/master/CONTRIBUTING.md).
 
 # Contents
 1. [Introducing Github Flow](#github-flow)
@@ -25,7 +22,7 @@ This workshop has been made for students of [Founders and Coders](www.founderand
 ## GitHub Flow
 Version control makes it possible for you and I to work on one file at the same time, because we can keep both our versions saved and then compare them once we have each finished our work. This allows us to integrate our changes more swiftly.
 
-[Most developers use git as their version control system](https://rhodecode.com/insights/version-control-systems-2016), but different teams use different "workflows". At Founders and Coders, we generally follow something called "GitHub flow", because this flow makes it easy to deploy the latest version of your application very regularly. For a fuller explanation, there is a useful article in the [resources section](#resources).
+[Most developers use git as their version control system](https://rhodecode.com/insights/version-control-systems-2016), but different teams use different "workflows". Generally mose teams follow something called "GitHub flow", because this flow makes it easy to deploy the latest version of your application very regularly. For a fuller explanation, there is a useful article in the [resources section](#resources).
 
 To see the steps involved in working on a "feature branch", follow GitHub's [visual guide](https://guides.github.com/introduction/flow/) now.
 
@@ -36,34 +33,29 @@ Creating your own "branch" is like taking a copy of `master` and renaming it. Wh
 <a name="tutorial" id="git-basics"></a>
 ## Git Basics
 
-Next please fork this repository.
 
-![fork button on github](./img/fork.png)
-
-<a name="getting-started" id="getting-started"></a>
-### Getting Started
-The next step is to clone the forked version of this repository. On the main page of the repo, copy the url shown here:
-
-![where to copy url on github](./img/git-clone.png)
 
 Then use the command in your terminal:
 
 ```
-git clone https://github.com/NataliaLKB/learn-git-basics.git
+$ git clone  <your assignment github repo>
 ```
 
 You should now be able to redirect into the directory just created using the command line.
 
+```
+$ cd <directory name>
+```
 Next, it is good to get in the habit after each command to use `git status`. Let us use it now.
 
 ```
-git status
+$ git status
 ```
 
 Now check which branch you are on:
 
 ```
-git branch
+$ git branch
 ```
 
 You should only see `master` which is the default branch in this repo.
@@ -79,7 +71,7 @@ The next step is to create your own branch to work on. try this:
 git branch new-branch
 ```
 
-It is best to try to name your branches as specific as possible, so not to confuse them with any others. There are many naming conventions out there for branches, but for this week simply try to name them off of a feature. For example (`navbar-collapse` or `sass-file-structure`). To see all your branches:
+It is best to try to name your branches as specific as possible, so not to confuse them with any others. There are many naming conventions out there for branches, but for this week simply try to name them off of a feature. A common naming convention is the first part of the branch name is what type of work the branch is for example a bug-fix or feature followed by the acutally bug-fix name or feature name. The For example (`feature/navbar-collapse` or `bug-fix/sass-file-structure`). To see all your local branches:
 
 ```
 git branch
@@ -126,15 +118,15 @@ You will see something like this:
 You will see your changes in red. now we need to add them to the git staging area. Doing this is like telling git to pay attention to these files, and start tracking the changes. To do this write this command:
 
 ```
-git add cheatsheet.md
-git status
+$ git add cheatsheet.md
+$ git status
 ```
 
 Now you can see the file name has turned green. Now to commit your changes.
 
 ```
-git commit -m 'adding new command in the cheatsheet'
-git status
+$ git commit -m 'adding new command in the cheatsheet'
+$ git status
 ```
 
 The message could be anything, but it is best to make it something that describes what you just did. You can also use the command `git commit` without `-m '<message'`, however beware that it will send you to a text editor called Vim. Though learning how to use Vim is important, it isn't necessary at this stage. Typing `:q` straight away will get you out of it and commit again with a message.
@@ -145,21 +137,21 @@ The message could be anything, but it is best to make it something that describe
 Now that you have made and committed your changes, it is time to merge your branch with master. Even though you are not working with anyone else on this repository, it is always good practice to make sure your current branch is completely up to date with master. Imagine if you were working with a team. Someone else has already pushed up changes to master. If that someone else and yourself have changed the same file, it is quite likely that your changes will not be compatible with theirs. To avoid this, you want to merge your changes with theirs to avoid future problems. Checkout back onto master and pull down. These commands look like this:
 
 ```
-git checkout master
-git pull origin master
+$ git checkout master
+$ git pull origin master
 ```
 
 Pulling down means that you are getting any recent changes from the remote master branch which is located in Github. Next go back to your branch (`update-cheatsheet`)  and merge with master.
 
 ```
-git merge master
+# git merge master
 ```
 
 Even though in this situation there isn't any changes to merge, it is best to get in the habit on going through these steps in your work flow. Merging like this means taking any possible changes in master and merging them with the branch you are currently on.
 After you merge with master you have to push your changes to the remote repo (Github).
 
 ```
-git push origin update-cheatsheet
+$ git push origin update-cheatsheet
 ```
 
 When you pull or push you are referring to your remote repo, or origin. In the example of `git push origin <branch name>` you are pushing your local changes to a remote branch that you are both creating, and naming. Since you are creating this branch from your local one it makes things much simpler if you use the same name for your remote branch, as your local one.
@@ -184,7 +176,7 @@ Return to your terminal and navigate to your local master branch. Pull down. You
 Check all the branches on this repository, even the remote ones. To do this use this command:
 
 ```
-git branch -a
+$ git branch -a
 ```
 
 You should see something like this:
@@ -194,13 +186,13 @@ You should see something like this:
 Run the command:
 
 ```
-git checkout merging-experiments
+$ git checkout merging-experiments
 ```
 
 Open up the git cheatsheet, as you can see there are some differences between this and master. To see these differences use command:
 
 ```
-git diff master
+$ git diff master
 ```
 
 The differences in green and the additions on this branch, that don't exist on master. The red are the things that are on master, that don't exist on this branch.
@@ -234,14 +226,14 @@ index.html
 
 In order to achieve this, `git mv` command comes in handy. Using it to move files *ensures preserving history* of the files you work on. To change file structure like above (and create new folders at the same time) use command:
 ```
-mkdir css && git mv stylesheet.css ./css
-mkdir js && git mv script.js ./js
+$ mkdir css && git mv stylesheet.css ./css
+$ mkdir js && git mv script.js ./js
 ```
 (This glues `mkdir` and `git mv` commands together with `&&` operator).
 
 Basic function usage is
 ```
-git mv <source> <destination>
+$ git mv <source> <destination>
 ```
 The command also takes optional parameters. To find out more, refer to [documentation](http://git-scm.com/docs/git-mv).
 
@@ -271,14 +263,14 @@ Make a new branch called `timeline-practice` and navigate onto it.
 Step 1) Make a new directory in the project via the command line. Lets call it `time`.
 
 ```
-mkdir time
+$ mkdir time
 ```
 
 Step 2) Also make a new file in that directory and call it whatever you like. A simple text file should be fine. After you are done, open it.
 
 ```
-touch time/newfile.txt
-open time/newfile.txt
+$ touch time/newfile.txt
+$ open time/newfile.txt
 ```
 
 Write the current time stamp, and a short message to your future self. Save it. Next add and commit your changes. Your commit message should be descriptive of what you just did.
@@ -287,7 +279,7 @@ Repeat step 2 twice more, deleting the previous time and message, and adding the
 Step 3) Next type in this command:
 
 ```
-git log
+$ git log
 ```
 
 You should see something like this:
@@ -299,8 +291,8 @@ Pick the second time commit that you made and copy the hash. Use `q` to exit the
 
 Step 4)
 ```
-git checkout <commit hash>
-git status
+$ git checkout <commit hash>
+$ git status
 ```
 
 ![git detached head warning](./img/detached-head.png)
@@ -373,9 +365,9 @@ To begin, make a new branch and make some new files and commit regularly (at lea
 Next `git log` and pick the 3rd most recent hash. Copy it and:
 
 ```
-git reset --soft <commit hash>
-git status
-git log
+$ git reset --soft <commit hash>
+$ git status
+$ git log
 ```
 
 Your working directory shouldn't changes, but all the files that you changed should be in green. Your log should have the newest commit as the hash you copied. Even though all your work is still the same as before the reset, the commits are different. Then you can commit again and this is an easy way to replace 2 or more commits with one commit.
